@@ -1,5 +1,6 @@
 package med.voll.api.domain.usuario;
 
+import med.voll.api.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +12,8 @@ public class AutenticacaoService implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    private TokenService tokenService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
